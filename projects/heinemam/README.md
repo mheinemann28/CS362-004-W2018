@@ -1,3 +1,3 @@
 Michael Heinemann, heinemam
 
-This is my assignment-3 submission!
+This is my random quiz submission!
