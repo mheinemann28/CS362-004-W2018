@@ -90,6 +90,7 @@ protected void setUp() {
       if (printIndex)  {
          statusPerLine = 6;
       }
+      int i = 0;
       do {
           StringBuilder testBuffer = new StringBuilder();
          boolean expected = true;
@@ -101,6 +102,7 @@ protected void setUp() {
          }
          String url = testBuffer.toString();
          boolean result = urlVal.isValid(url);
+         System.out.println(i++);
          if(result == true)
         	 System.out.println(url);
          assertEquals(url, expected, result);

@@ -1,0 +1,22 @@
+Bug-1
+		Title: “stewardEffect function returning handCount greater than expected.”
+
+		Is it reproducible: Yes, every time.
+
+Description: The stewardEffect functions purpose is based on the user selection.  The function can either draw two new cards to the players hand, increase the coins by two, or trash two cards.  The bug is reproducible with all three choices where the handCount is always one more than expected.
+
+The following errors are printed to the screen for one particular set of start conditions:
+	FAILED Expected hand count: 6; Actual hand count: 7
+FAILED Expected hand count: 6; Actual hand count: 7
+FAILED Expected hand count: 4; Actual hand count: 5
+
+Since this function is based off the choices of the user we should be able to narrow down the selection of code depending on which test cases the function fails on.  The bug occurs with all test parameters no matter the choice, so this leads to the bug being located within code that runs no matter the choice.  Knowing this we should be able to narrow down the potential cause of the bug.
+
+	Bug-2
+		Title: “Error reporting deck and discard count after adventurerEffect”
+
+		Is it reproducible:  Yes, with random tester.
+
+Description: When using my random tester I was able to reproduce this error 491 times.  Since the adventurerEffect function also relies on other functions to operate I could not make my tests to check deckCount and discardCount alone.  What I could check was the values of those counts together.  Since my only errors are and unmatched value of deckCount plus discardCount we know that the problem involves either one or both of these variables.
+
+Within the adventuerEffect function, the drawCard function is called, which itself manipulates the deckCount and the hanCount of the player.  Since there are no errors when it comes to the handCount, we can confidently say that this function is not the cause of the bug, and in turn determine that the deckCount is not at fault when it comes to the error.  Therefore, we can determine that the bug can be found within the code that manipulates the discard pile count.
