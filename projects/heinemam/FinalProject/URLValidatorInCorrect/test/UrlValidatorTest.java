@@ -72,6 +72,19 @@ public class UrlValidatorTest extends TestCase {
 		   System.out.println("Expected Result: true; Actual Result: " + valid);
 	   }
 	   
+	   for(int i = 0; i < invalidSchemes.length; i++) {
+		   randAuth = rand.nextInt(5);
+		   randPort = rand.nextInt(3);
+		   randPath = rand.nextInt(4);
+		   
+		   url = invalidSchemes[i] + validAuthority[randAuth] + validPort[randPort] + validPath[randPath];
+		   
+		   System.out.println("Testing URL: " + url);
+		   
+		   valid = urlVal.isValid(url);
+		   
+		   System.out.println("Expected Result: false; Actual Result: " + valid);
+	   }
    }
    
    public void testYourSecondPartition(){
